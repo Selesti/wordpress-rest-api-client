@@ -45,7 +45,7 @@ abstract class AbstractWpEndpoint
 
         if ($response->hasHeader('Content-Type')
             && substr($response->getHeader('Content-Type')[0], 0, 16) === 'application/json') {
-            return json_decode($response->getBody()->getContents(), true);
+            return json_decode($response->getBody()->getContents(), $this->client->json_assoc);
         }
 
         throw new RuntimeException('Unexpected response');
@@ -69,7 +69,7 @@ abstract class AbstractWpEndpoint
 
         if ($response->hasHeader('Content-Type')
             && substr($response->getHeader('Content-Type')[0], 0, 16) === 'application/json') {
-            return json_decode($response->getBody()->getContents(), true);
+            return json_decode($response->getBody()->getContents(), $this->client->json_assoc);
         }
 
         throw new RuntimeException('Unexpected response');

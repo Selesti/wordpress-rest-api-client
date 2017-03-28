@@ -45,14 +45,21 @@ class WpClient
     private $endPoints = [];
 
     /**
+     * @var bool
+     */
+    public $json_assoc = true;
+
+    /**
      * WpClient constructor.
      * @param ClientInterface $httpClient
      * @param string $wordpressUrl
+     * @param bool $json_assoc
      */
-    public function __construct(ClientInterface $httpClient, $wordpressUrl = '')
+    public function __construct(ClientInterface $httpClient, $wordpressUrl, $json_assoc)
     {
         $this->httpClient = $httpClient;
         $this->wordpressUrl = $wordpressUrl;
+        $this->json_assoc = $json_assoc;
     }
 
     /**
