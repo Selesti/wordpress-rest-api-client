@@ -17,6 +17,8 @@ abstract class AbstractWpEndpoint
      */
     private $client;
 
+    private $data;
+
     /**
      * Users constructor.
      * @param WpClient $client
@@ -45,10 +47,19 @@ abstract class AbstractWpEndpoint
 
         if ($response->hasHeader('Content-Type')
             && substr($response->getHeader('Content-Type')[0], 0, 16) === 'application/json') {
-            return json_decode($response->getBody()->getContents(), true);
+            $contents = $response->getBody()->getContents();
+
+            $this->data = json_decode($contents, false);
+
+            return json_decode($contents, true);
         }
 
         throw new RuntimeException('Unexpected response');
+    }
+
+    public function asObject()
+    {
+        return $this->data;
     }
 
     /**
@@ -69,7 +80,11 @@ abstract class AbstractWpEndpoint
 
         if ($response->hasHeader('Content-Type')
             && substr($response->getHeader('Content-Type')[0], 0, 16) === 'application/json') {
-            return json_decode($response->getBody()->getContents(), true);
+            $contents = $response->getBody()->getContents();
+
+            $this->data = json_decode($contents, false);
+
+            return json_decode($contents, true);
         }
 
         throw new RuntimeException('Unexpected response');
