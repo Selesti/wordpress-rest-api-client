@@ -19,7 +19,6 @@ use Vnn\WpApiClient\Http\ClientInterface;
  * @method Endpoint\Posts posts()
  * @method Endpoint\PostStatuses postStatuses()
  * @method Endpoint\PostTypes postTypes()
- * @method Endpoint\SchoolUsers schoolUsers()
  * @method Endpoint\Tags tags()
  * @method Endpoint\Users users()
  */
