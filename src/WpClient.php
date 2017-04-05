@@ -15,6 +15,7 @@ use Vnn\WpApiClient\Http\ClientInterface;
  *
  * @method Endpoint\Categories categories()
  * @method Endpoint\Comments comments()
+ * @method Endpoint\Faqs faqs()
  * @method Endpoint\Media media()
  * @method Endpoint\Pages pages()
  * @method Endpoint\Posts posts()
